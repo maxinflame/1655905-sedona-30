@@ -17,6 +17,7 @@
 /* Variables */
 :root{
   --basic-black: #000000;
+  --opacity-black: rgba(0,0,0,0.3);
   --basic-dark: #333333;
   --basic-white: #ffffff;
   --basic-blue: #81b3d2;
@@ -29,6 +30,8 @@
   --footer-white: rgba(255, 255, 255, 0.9);
   --dark-blue: #669ec0;
   --darkest-blue: #5496bd;
+  --rating-gray: #666666;
+  --light-gray: #f2f2f2f2;
 }
 
 /* Global */
@@ -75,12 +78,19 @@ img {
   opacity: 0.3;
 }
 
+.site-navigation-current a {
+  color: var(--basic-brown);
+}
+
+
+/* Index */
 
 /* Welcome */
 
 .welcome {
   background-color: var(--background-blue);
   background-image: url("../img/index_background_photo.jpg");
+  background-repeat: no-repeat;
 }
 
 
@@ -188,4 +198,104 @@ background-color: var(--footer-white)
 .footer-copyright {
   font-size: 14px;
   line-height: 26px;
+}
+
+
+/* Catalog */
+
+/* Filter */
+
+.filter {
+  background-color: var(--basic-blue);
+  background-image: url("../img/catalog_filter_background.jpg");
+  background-repeat: no-repeat;
+  color: var(--basic-white);
+}
+
+.filter-tittle {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 700;
+}
+
+.filter-list {
+  list-style: none;
+}
+
+.filter-button {
+  color: var(--basic-white);
+  text-transform: uppercase;
+  background-color: transparent;
+  border: 2px solid var(--basic-white);
+}
+
+/* Filter result */
+
+.filter-result-tittle {
+  font-size: 21px;
+  line-height: 26px;
+  font-weight: 700;
+  color: var(--basic-black);
+}
+
+.sorting-tittle {
+  font-size: 12px;
+  line-height: 18px;
+  color: var(--basic-black);
+  font-weight: 400;
+}
+
+.sorting-list {
+  list-style: none;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.sorting-item {
+  color: var(--opacity-black);
+  border-bottom: 1px dotted var(--basic-blue);
+}
+
+.sorting-item:hover {
+  color: var(--basic-blue);
+}
+
+.sorting-item:active {
+  color: var(--basic-black);
+  border: none;
+}
+
+.sorting-item-current {
+  color: var(--basic-blue);
+  border: none;
+}
+
+.result-list {
+  list-style: none;
+}
+
+.hotel-link:hover {
+  color: var(--basic-blue);
+}
+
+.hotel-link:active {
+  color: var(--opacity-black);
+}
+
+.more-button {
+  background-color: var(--basic-blue);
+}
+
+.more-button:hover {
+  background-color: var(--dark-blue);
+}
+
+.more-button:active {
+  background-color: var(--darkest-blue);
+  color: var(--opacity-white);
+}
+
+.rating {
+  color: var(--rating-gray);
+  background-color: var(--light-gray);
 }
