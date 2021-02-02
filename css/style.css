@@ -227,6 +227,7 @@ background-color: var(--footer-white)
   text-transform: uppercase;
   background-color: transparent;
   border: 2px solid var(--basic-white);
+  border-radius: 2px;
 }
 
 /* Filter result */
