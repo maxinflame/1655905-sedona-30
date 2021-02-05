@@ -265,10 +265,29 @@ grid-template-columns: 1fr 1fr 1fr;
 /* Filter */
 
 .filter {
+  width: 1056px;
+  height: 217px;
   background-color: var(--basic-blue);
   background-image: url("../img/catalog_filter_background.jpg");
   background-repeat: no-repeat;
   color: var(--basic-white);
+  display: grid;
+  grid-template-columns: min-content min-content 1fr;
+  padding-left: 72px;
+  padding-right: 72px;
+}
+
+.checkbox-fieldset {
+  width: 254px;
+  padding:  0px;
+  margin: 0px;
+}
+
+.price-fieldset {
+  width: 317px;
+  padding: 0px;
+  margin: 0px;
+  justify-self: end;
 }
 
 .filter-tittle {
