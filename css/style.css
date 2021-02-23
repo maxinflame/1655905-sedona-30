@@ -39,6 +39,8 @@
   --form-button: #a9a9a9;
   --form-input-hover: #ebebeb;
   --map-background: #f2f1ef;
+  --site-shadow: rgba(0, 1, 1, 0.2);
+  --disabled-checkbox: #6a6a6a;
 }
 
 /* Global */
@@ -53,7 +55,7 @@
   line-height: 21px;
   text-transform: uppercase;
   background-color: var(--basic-white);
-
+  box-shadow: 0px 5px 15px var(--site-shadow);
   min-height: 100%;
   display: grid;
   grid-template-rows: min-content 1fr min-content;
@@ -95,14 +97,14 @@ img {
   font-weight: 700;
   font-size: 14px;
   line-height: 26px;
+  padding: 14px 72px 16px 72px;
 }
 
 .site-navigation {
   list-style: none;
-  margin-right: 72px;
-  margin-left: 72px;
   padding-left: 0px;
   display: flex;
+  margin: 0px;
 }
 
 .site-navigation li {
@@ -121,15 +123,15 @@ img {
   margin-right: auto;
 }
 
-.site-navigation a:hover {
+.site-navigation a:hover:not(.site-navigation-current) {
   color: var(--basic-blue);
 }
 
-.site-navigation a:active {
+.site-navigation a:active:not(.site-navigation-current) {
   opacity: 0.3;
 }
 
-.site-navigation-current a {
+.site-navigation-current {
   color: var(--basic-brown);
 }
 
@@ -601,11 +603,18 @@ z-index: 1;
 .filter-list {
   list-style: none;
   padding: 0px;
-  margin-top: 24px;
+  margin-top: 0px;
 }
 
 .filter-list li {
   margin-bottom: 25px;
+}
+
+.filter-tittle {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
 .checkbox-fieldset label {
@@ -621,8 +630,12 @@ z-index: 1;
   left: 0px;
   width: 23px;
   height: 23px;
-  border: 2px solid white;
+  border: 2px solid var(--basic-white);
   border-radius: 3px;
+}
+
+.filter-checkbox:disabled:not(:checked) + label::before {
+  border: 2px solid var(--disabled-checkbox);
 }
 
 .filter-checkbox:checked + label::before {
@@ -635,12 +648,20 @@ z-index: 1;
   background-image: url("../img/checkbox-on.svg")
 }
 
+.filter-checkbox:checked:disabled + label::before {
+  background-image: url("../img/checkbox-on-disabled.svg")
+}
+
 .price-fieldset {
   width: 317px;
   padding: 0px;
   margin: 0px;
   justify-self: end;
   border: none;
+}
+
+.price-fieldset legend {
+  margin-bottom: 10px;
 }
 
 .input-price-number-fieldset {
@@ -653,7 +674,6 @@ z-index: 1;
   border: 2px solid var(--basic-white);
   border-radius: 3px;
   margin: 0px;
-  margin-top: 10px;
   text-align: center;
 }
 
@@ -667,12 +687,6 @@ z-index: 1;
   background-color: var(--basic-white);
 }
 
-.filter-tittle {
-  font-size: 16px;
-  line-height: 21px;
-  font-weight: 700;
-}
-
 .input-price-number {
   max-width: 31px;
   background-color: transparent;
@@ -681,6 +695,11 @@ z-index: 1;
   font-family: : inerhit;
   font-size: 14px;
   line-height: 21px;
+}
+
+.input-price-number:focus {
+  border: none;
+  outline: none;
 }
 
 .range-controls {
@@ -714,6 +733,11 @@ z-index: 1;
   box-shadow: 0px 2px var(--toggle-shadow);
 }
 
+.toggle:hover {
+  width: 5px;
+  height: 5px;
+}
+
 .max-toggle {
   left: 77%;
 }
@@ -735,6 +759,10 @@ z-index: 1;
   color: var(--basic-black);
 }
 
+.filter-button:focus {
+  outline: none;
+}
+
 /* Filter result */
 .filter-result {
   padding-left: 72px;
@@ -744,6 +772,7 @@ z-index: 1;
 .filter-result-header {
   position: relative;
   display: flex;
+  padding-top: 31px;
 }
 
 .filter-result-header::after {
@@ -762,7 +791,7 @@ z-index: 1;
   font-weight: 700;
   color: var(--basic-black);
   width: 163px;
-  margin-top: 29px;
+  margin-top: -2px;
   margin-bottom: 31px;
 }
 
@@ -771,8 +800,8 @@ z-index: 1;
   line-height: 18px;
   color: var(--basic-black);
   font-weight: 400;
-  width: 115px;
-  margin-top: 31px;
+  margin-top: 0px;
+  margin-right: 40px;
 }
 
 .sorting-list {
@@ -780,18 +809,17 @@ z-index: 1;
   font-size: 12px;
   line-height: 18px;
   padding: 0px;
-  margin-top: 31px;
+  margin: 0px;
   display: flex;
+  align-items: flex-start;
 }
 
 .sorting-buttons {
   margin-left: auto;
-  margin-right: 72px;
+  margin-top: 9px;
   width: 34px;
-  height: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 40px;
 }
 
 .sorting-button {
@@ -843,6 +871,7 @@ z-index: 1;
   display: flex;
   padding-top: 30px;
   padding-bottom: 30px;
+  height: 90px;
   position: relative;
 }
 
@@ -883,7 +912,6 @@ z-index: 1;
   height: 17px;
   background-image: url("../img/icon_star.svg");
   background-repeat: space;
-  margin-left: auto;
 }
 
 .two-stars {
@@ -899,7 +927,10 @@ z-index: 1;
 }
 
 .rating-container {
-  text-align: right;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
   height: 90px;
 }
 
@@ -942,8 +973,7 @@ z-index: 1;
   background-color: var(--light-gray);
   width: 110px;
   height: 27px;
-  margin: 0px;
-  margin-top: 47px;
   box-sizing: border-box;
   padding: 3px 12px 3px 15px;
+  margin: 0px;
 }
