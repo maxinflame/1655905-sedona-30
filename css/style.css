@@ -647,6 +647,10 @@ z-index: 1;
   background-image: url("../img/checkbox-on-disabled.svg")
 }
 
+.filter-checkbox:focus + label::before {
+  outline: 2px solid var(--basic-gray);
+}
+
 .price-fieldset {
   width: 317px;
   padding: 0px;
@@ -687,14 +691,9 @@ z-index: 1;
   background-color: transparent;
   border: none;
   color: var(--basic-white);
-  font-family: : inerhit;
+  font-family: inerhit;
   font-size: 14px;
   line-height: 21px;
-}
-
-.input-price-number:focus {
-  border: none;
-  outline: none;
 }
 
 .range-controls {
@@ -763,6 +762,7 @@ z-index: 1;
 .filter-result-header {
   position: relative;
   display: flex;
+  align-items: flex-start;
   padding-top: 31px;
 }
 
@@ -781,9 +781,9 @@ z-index: 1;
   line-height: 26px;
   font-weight: 700;
   color: var(--basic-black);
-  width: 163px;
   margin-top: -2px;
   margin-bottom: 31px;
+  margin-right: 46px
 }
 
 .sorting-tittle {
@@ -803,6 +803,7 @@ z-index: 1;
   margin: 0px;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .sorting-buttons {
