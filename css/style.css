@@ -384,7 +384,7 @@ img {
 
 @keyframes hidden-form {
    from {
-    transform: translateY(100%);
+    transform: translateY(800px);
   }
   to {
     transform: translateY(0%);
@@ -399,7 +399,7 @@ img {
   box-sizing: border-box;
   position: absolute;
   top: 0;
-  left: 50%;
+  left: 316px;
   z-index: 1;
   width: 568px;
   background-color: var(--basic-white);
@@ -415,8 +415,8 @@ img {
 
 .hidden-form {
   animation-name: hidden-form;
-  animation-duration: 1s;
-  top: -100%;
+  animation-duration: 2s;
+  top: -800px;
 }
 
 .form-error {
@@ -713,7 +713,7 @@ z-index: 1;
   background-image: url("../img/checkbox-on-disabled.svg")
 }
 
-.filter-checkbox:focus + label::before {
+.filter-checkbox:focus-visible + label::before {
   outline: 2px solid var(--basic-gray);
 }
 
@@ -757,7 +757,7 @@ z-index: 1;
   background-color: transparent;
   border: none;
   color: var(--basic-white);
-  font-family: inerhit;
+  font-family: PT Sans;
   font-size: 14px;
   line-height: 21px;
 }
