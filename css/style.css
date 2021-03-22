@@ -220,7 +220,8 @@ img {
 
 .feature-description {
   margin: 0px auto 0px auto;
-  max-height: 42px;
+  min-height: 42px;
+  max-width: 302px;
 }
 
 .feature-item .feature-number {
